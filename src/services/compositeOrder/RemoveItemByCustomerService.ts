@@ -4,9 +4,9 @@ interface ItemRequest {
   item_id: string;
 }
 
-class RemoveItemService {
+class RemoveItemByCustomerService {
   execute = async ({ item_id }: ItemRequest) => {
-    const order = await prismaClient.item.delete({
+    const order = await prismaClient.itemByCustomer.delete({
       where: {
         id: item_id,
       },
@@ -16,4 +16,4 @@ class RemoveItemService {
   };
 }
 
-export { RemoveItemService };
+export { RemoveItemByCustomerService };

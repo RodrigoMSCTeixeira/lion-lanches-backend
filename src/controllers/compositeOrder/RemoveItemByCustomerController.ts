@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { RemoveItemService } from "../../services/order/RemoveItemService";
 
-class RemoveItemController {
+class RemoveItemByCustomerController {
   handle = async (req: Request, res: Response) => {
     const item_id = req.query.item_id as string;
 
@@ -15,4 +15,4 @@ class RemoveItemController {
   };
 }
 
-export { RemoveItemController };
+export { RemoveItemByCustomerController };

@@ -4,9 +4,9 @@ interface OrderRequest {
   order_id: string;
 }
 
-class SendOrderService {
+class SendCompositeOrderService {
   execute = async ({ order_id }: OrderRequest) => {
-    const order = await prismaClient.order.update({
+    const order = await prismaClient.compositeOrder.update({
       where: {
         id: order_id,
       },
@@ -19,4 +19,4 @@ class SendOrderService {
   };
 }
 
-export { SendOrderService };
+export { SendCompositeOrderService };

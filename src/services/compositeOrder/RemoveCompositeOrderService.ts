@@ -4,9 +4,9 @@ interface OrderRequest {
   order_id: string;
 }
 
-class RemoveOrderService {
+class RemoveCompositeOrderService {
   execute = async ({ order_id }: OrderRequest) => {
-    const order = await prismaClient.order.delete({
+    const order = await prismaClient.compositeOrder.delete({
       where: {
         id: order_id,
       },
@@ -16,4 +16,4 @@ class RemoveOrderService {
   };
 }
 
-export { RemoveOrderService };
+export { RemoveCompositeOrderService };

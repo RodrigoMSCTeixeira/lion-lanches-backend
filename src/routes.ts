@@ -17,6 +17,15 @@ import { SendOrderController } from "./controllers/order/SendOrderController";
 import { ListOrdersController } from "./controllers/order/ListOrdersController";
 import { DetailOrderController } from "./controllers/order/DetailOrderController";
 import { FinishOrderController } from "./controllers/order/FinishOrderController";
+import { CreateCompositeOrderController } from "./controllers/compositeOrder/CreateCompositeOrderController";
+import { RemoveCompositeOrderController } from "./controllers/compositeOrder/RemoveCompositeOrderController";
+import { AddItemByCustomerController } from "./controllers/compositeOrder/AddItemByCustomerController";
+import { RemoveItemByCustomerController } from "./controllers/compositeOrder/RemoveItemByCustomerController";
+import { AddCustomerController } from "./controllers/compositeOrder/AddCustomerController";
+import { SendCompositeOrderController } from "./controllers/compositeOrder/SendCompositeOrderController";
+import { ListCompositeOrdersController } from "./controllers/compositeOrder/ListCompositeOrdersController";
+import { DetailCompositeOrderController } from "./controllers/compositeOrder/DetailCompositeOrderController";
+import { FinishCompositeOrderController } from "./controllers/compositeOrder/FinishCompositeOrderController";
 
 const router = Router();
 
@@ -67,6 +76,56 @@ router.put(
   "/order/finish",
   isAuthenticated,
   new FinishOrderController().handle
+);
+
+router.post(
+  "/compositeOrder",
+  isAuthenticated,
+  new CreateCompositeOrderController().handle
+);
+router.delete(
+  "/compositeOrder",
+  isAuthenticated,
+  new RemoveCompositeOrderController().handle
+);
+
+router.post(
+  "/compositeOrder/AddCustomer",
+  isAuthenticated,
+  new AddCustomerController().handle
+);
+
+//Falta Remover Cliente
+
+router.post(
+  "/compositeOrder/add",
+  isAuthenticated,
+  new AddItemByCustomerController().handle
+);
+router.delete(
+  "/compositeOrder/remove",
+  isAuthenticated,
+  new RemoveItemByCustomerController().handle
+);
+router.put(
+  "/compositeOrder/update",
+  isAuthenticated,
+  new SendCompositeOrderController().handle
+);
+router.get(
+  "/compositeOrders",
+  isAuthenticated,
+  new ListCompositeOrdersController().handle
+);
+router.get(
+  "/compositeOrders/detail",
+  isAuthenticated,
+  new DetailCompositeOrderController().handle
+);
+router.put(
+  "/compositeOrder/finish",
+  isAuthenticated,
+  new FinishCompositeOrderController().handle
 );
 
 export { router };

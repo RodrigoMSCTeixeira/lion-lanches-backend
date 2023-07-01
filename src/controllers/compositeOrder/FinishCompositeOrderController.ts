@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { FinishOrderService } from "../../services/order/FinishOrderService";
 
-class FinishOrderController {
+class FinishCompositeOrderController {
   handle = async (req: Request, res: Response) => {
     const { order_id } = req.body;
 
@@ -15,4 +15,4 @@ class FinishOrderController {
   };
 }
 
-export { FinishOrderController };
+export { FinishCompositeOrderController };

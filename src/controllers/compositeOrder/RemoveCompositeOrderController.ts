@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { RemoveOrderService } from "../../services/order/RemoveOrderService";
+import { RemoveCompositeOrderService } from "../../services/compositeOrder/RemoveCompositeOrderService";
 
-class RemoveOrderController {
+class RemoveCompositeOrderController {
   handle = async (req: Request, res: Response) => {
     const order_id = req.query.order_id as string;
 
-    const removeOrder = new RemoveOrderService();
+    const removeOrder = new RemoveCompositeOrderService();
 
     const order = await removeOrder.execute({
       order_id,
@@ -15,4 +15,4 @@ class RemoveOrderController {
   };
 }
 
-export { RemoveOrderController };
+export { RemoveCompositeOrderController };
